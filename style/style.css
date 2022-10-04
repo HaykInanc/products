@@ -4,6 +4,31 @@
     box-sizing: border-box;
 }
 
+#add_form{
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#add_form input{
+    height: 50px;
+    width: 200px;
+    padding-left: 40px;
+}
+
+#add_form button{
+    height: 50px;
+    width: 200px;
+    border: none;
+    background-color: #27ae60;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .product-container{
     padding: 20px;
     margin: 20px auto;
@@ -27,6 +52,12 @@
     font-size: 30px;
     position: relative;
 }
+
+.product-item.active{
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
 
 .product-item:hover .delete-btn{
     transform: translate(50%, -50%) scale(1) rotate(360deg);

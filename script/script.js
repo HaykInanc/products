@@ -38,8 +38,6 @@ function createDeleteButton(){
     return button
 }
 
-// создать функцию emptyList которая возвращает параграф с текстом "Товаров нет."
-
 function emptyList(){
     const p_elem = document.createElement('p');
     p_elem.innerText = "Товаров нет.";
@@ -59,6 +57,9 @@ function createProductElement(id, title, price){
     price_p.innerText = price;
     container.append(title_p, price_p, delete_btn);
     container.classList.add('product-item');
+    container.addEventListener('click', event =>{
+        event.target.classList.add('active');
+    });
     return container
 }
 
@@ -83,18 +84,21 @@ function deleteProduct(id){
 render();
 
 
+const add_form = document.querySelector('#add_form');
 
+add_form.addEventListener('submit', event => {
+    event.preventDefault();
+    const input_title = event.target.title;
+    const input_price = event.target.price;
 
+    const new_product = {
+        id: Date.now(),
+        title: input_title.value,
+        price: input_price.value
+    };
 
-
-
-
-
-
-
-
-
-
-
-
-
+    products.push(new_product);
+    render();
+    input_title.value = '';
+    input_price.value = '';
+});
